@@ -9,6 +9,8 @@
         <div class="bg-gray-50 rounded my-4 p-2">
             <h2 class="font-bold">{{ $post->title }}</h2>
 
+            <h3 class="text-purple-500">{{ $post->author->name }}</h3>
+
             <div>
                 {{ $post->content }}
             </div>

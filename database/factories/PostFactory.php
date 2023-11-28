@@ -20,6 +20,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(5,true),
             'content' => fake()->paragraphs(3,true),
             'is_published' => fake()->boolean(75),
+            'author_id' => fake()->numberBetween(1,5),
             'created_at' => fake()->dateTimeBetween('-3 months'),
         ];
     }

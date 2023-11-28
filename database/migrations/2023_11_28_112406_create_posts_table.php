@@ -13,6 +13,7 @@ return new class extends Migration
 
             $table->string('title');
             $table->text('content')->nullable();
+            $table->boolean('is_published')->default(false);
             $table->foreignId('author_id');
 
             $table->timestamps();
