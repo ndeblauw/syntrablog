@@ -13,4 +13,9 @@ class PostController extends Controller
 
         return view('posts.index', ['posts' => $all_published_posts]);
     }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', ['post' => $post]);
+    }
 }
