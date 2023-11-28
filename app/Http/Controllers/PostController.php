@@ -18,4 +18,32 @@ class PostController extends Controller
     {
         return view('posts.show', ['post' => $post]);
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        ray('start van store method');
+
+        $request->validate([
+            'title' => ['required' , 'min:3', 'max:255'],
+            'author_id' => ['required', 'exists:users,id']
+        ]);
+
+        ray('voorbij de validatie');
+
+
+        \App\Models\Post::create([
+            'title' => $request->title,
+            'is_published' => true,
+            'author_id' => $request->author_id,
+        ]);
+
+        ray('na creatie model');
+
+        return redirect('/posts');
+    }
 }

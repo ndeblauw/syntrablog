@@ -1,5 +1,9 @@
 <x-site-layout title="Posts">
 
+    <div>
+        <a href="/posts/create" class="underline decoration-teal-500">Create new post</a>
+    </div>
+
     <div class="mb-4">
         {{ $posts->links() }}
     </div>
