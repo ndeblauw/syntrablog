@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', \App\Http\Controllers\WelcomeController::class);
+Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index']);
 
 
 Route::get('/dashboard', function () {
