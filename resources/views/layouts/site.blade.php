@@ -29,6 +29,8 @@
             {{ $slot }}
         </div>
     </main>
+
+    <x-site-layout-footer />
 </div>
 
 </body>
