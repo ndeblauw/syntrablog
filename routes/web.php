@@ -11,6 +11,9 @@ Route::get('/posts/create', [\App\Http\Controllers\PostController::class, 'creat
 Route::post('/posts', [\App\Http\Controllers\PostController::class, 'store']);
 
 Route::get('/posts/{post}', [\App\Http\Controllers\PostController::class, 'show']);
+Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
+Route::get('categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
+
 
 Route::get('/authors', [\App\Http\Controllers\AuthorController::class, 'index']);
 
