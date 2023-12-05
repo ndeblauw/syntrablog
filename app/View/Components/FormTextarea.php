@@ -11,11 +11,14 @@ class FormTextarea extends Component
     public string $name;
     public string $placeholder;
     public string $label;
-    public function __construct(string $name, string $placeholder, string $label = null)
+    public ?string $value;
+
+    public function __construct(string $name, string $placeholder, string $value = null, string $label = null)
     {
         $this->name = $name;
         $this->placeholder = $placeholder;
         $this->label = $label ?? ucfirst($name);
+        $this->value = $value;
     }
 
     public function render(): View|Closure|string
