@@ -27,15 +27,11 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        ray('start van store method');
-
         $request->validate([
             'title' => ['required' , 'min:3', 'max:255'],
             'author_id' => ['required', 'exists:users,id'],
             'content' => ['required', 'min:20'],
         ]);
-
-        ray('voorbij de validatie');
 
 
         \App\Models\Post::create([
