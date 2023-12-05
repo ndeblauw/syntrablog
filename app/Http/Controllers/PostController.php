@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -39,6 +40,7 @@ class PostController extends Controller
 
         \App\Models\Post::create([
             'title' => $request->title,
+            'slug' => Str::slug($request->title),
             'content' => $request->content,
             'is_published' => true,
             'author_id' => $request->author_id,
