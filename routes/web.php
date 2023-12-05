@@ -10,7 +10,8 @@ Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index']);
 Route::get('/posts/create', [\App\Http\Controllers\PostController::class, 'create']);
 Route::post('/posts', [\App\Http\Controllers\PostController::class, 'store']);
 
-Route::get('/posts/{post}', [\App\Http\Controllers\PostController::class, 'show']);
+Route::get('/posts/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+
 Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
 Route::get('categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 

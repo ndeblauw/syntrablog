@@ -28,6 +28,7 @@
 
             <div>
                 {{ Str::limit($post->content,50) }}
+                <a href="{{route('posts.show', $post->slug)}}">Lees meer</a>
             </div>
         </div>
 
