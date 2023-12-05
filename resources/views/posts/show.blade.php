@@ -18,7 +18,7 @@
         </div>
 
         <div>
-            {{ $post->content }}
+            {{ $post->body }}
         </div>
     </div>
 

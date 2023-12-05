@@ -30,14 +30,14 @@ class PostController extends Controller
         $request->validate([
             'title' => ['required' , 'min:3', 'max:255'],
             'author_id' => ['required', 'exists:users,id'],
-            'content' => ['required', 'min:20'],
+            'body' => ['required', 'min:20'],
         ]);
 
 
         \App\Models\Post::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
-            'content' => $request->content,
+            'body' => $request->body,
             'is_published' => true,
             'author_id' => $request->author_id,
         ]);

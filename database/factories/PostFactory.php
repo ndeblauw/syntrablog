@@ -20,7 +20,7 @@ class PostFactory extends Factory
         return [
             'title' => $title = fake()->sentence(5,true),
             'slug' => Str::slug($title),
-            'content' => fake()->paragraphs(3,true),
+            'body' => fake()->paragraphs(3,true),
             'is_published' => fake()->boolean(75),
             'author_id' => fake()->numberBetween(1,5),
             'created_at' => fake()->dateTimeBetween('-3 months'),

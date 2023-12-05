@@ -13,7 +13,7 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('content')->nullable();
+            $table->text('body')->nullable();
             $table->boolean('is_published')->default(false);
             $table->foreignId('author_id');
 
