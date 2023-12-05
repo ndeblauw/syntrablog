@@ -17,6 +17,15 @@
                     </div>
                 </div>
             </div>
+
+            <div class="text-white">
+                <a href="{{route('switch-language', ['locale' => 'en'])}}">EN</a>
+                |
+                <a href="{{route('switch-language', ['locale' => 'fr'])}}">FR</a>
+                |
+                <a href="{{route('switch-language', ['locale' => 'nl'])}}">NL</a>
+            </div>
+
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
                     <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
