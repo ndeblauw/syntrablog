@@ -30,7 +30,8 @@ class PostController extends Controller
 
         $request->validate([
             'title' => ['required' , 'min:3', 'max:255'],
-            'author_id' => ['required', 'exists:users,id']
+            'author_id' => ['required', 'exists:users,id'],
+            'content' => ['required', 'min:20'],
         ]);
 
         ray('voorbij de validatie');
@@ -38,6 +39,7 @@ class PostController extends Controller
 
         \App\Models\Post::create([
             'title' => $request->title,
+            'content' => $request->content,
             'is_published' => true,
             'author_id' => $request->author_id,
         ]);
