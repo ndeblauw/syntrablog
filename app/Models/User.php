@@ -48,4 +48,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'author_id');
     }
+
+    public function getHasFullEditOrDeleteRightsAttribute()
+    {
+        return $this->is_admin;
+    }
+
 }

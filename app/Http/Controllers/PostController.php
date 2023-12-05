@@ -46,4 +46,38 @@ class PostController extends Controller
 
         return redirect('/posts');
     }
+
+    public function edit(Post $post)
+    {
+        if(!$post->loggedInUserCanEditOrDeletePost()) {
+            return redirect()->route('posts.index');
+        }
+
+        return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        if(!$post->loggedInUserCanEditOrDeletePost()) {
+            return redirect()->route('posts.index');
+        }
+
+        $request->validate([
+            'title' => ['required' , 'min:3', 'max:255'],
+            'author_id' => ['required', 'exists:users,id'],
+            'body' => ['required', 'min:20'],
+        ]);
+
+        $post->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'body' => $request->body,
+            'is_published' => true,
+            'author_id' => $request->author_id,
+        ]);
+
+        return redirect('/posts');
+    }
+
+
 }

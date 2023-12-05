@@ -20,4 +20,18 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function loggedInUserCanEditOrDeletePost(): bool
+    {
+        if(!auth()->check()) {
+            return false;
+        }
+
+        if(auth()->user()->has_full_edit_or_delete_rights) {
+            return true;
+        }
+
+        return $this->author_id === auth()->id();
+    }
+
 }

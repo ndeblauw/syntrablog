@@ -15,6 +15,11 @@
                 <div>
                     <h2 class="font-bold">{{ $post->title }} ({{$post->id}}</h2>
                     <h3 class="text-purple-500">{{ $post->author->name }}</h3>
+
+                    @if(true || $post->loggedInUserCanEditOrDeletePost())
+                        <a href="{{route('posts.edit', ['post' => $post])}}" class="underline decoration-teal-500">Edit</a>
+                    @endif
+
                 </div>
                 <div>
                     @forelse($post->categories as $category)
