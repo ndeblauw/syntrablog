@@ -50,6 +50,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         if(!$post->loggedInUserCanEditOrDeletePost()) {
+            session()->flash('error', 'You have no rights to edit this post');
+
             return redirect()->route('posts.index');
         }
 
@@ -59,6 +61,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         if(!$post->loggedInUserCanEditOrDeletePost()) {
+            session()->flash('error', 'You have no rights to edit this post');
+
             return redirect()->route('posts.index');
         }
 
@@ -75,6 +79,8 @@ class PostController extends Controller
             'is_published' => true,
             'author_id' => $request->author_id,
         ]);
+
+        session()->flash('success', 'Post updated successfully');
 
         return redirect('/posts');
     }

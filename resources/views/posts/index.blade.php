@@ -4,6 +4,8 @@
         <a href="/posts/create" class="underline decoration-teal-500">Create new post</a>
     </div>
 
+    <x-site-layout-session-display/>
+
     <div class="mb-4">
         {{ $posts->links() }}
     </div>
