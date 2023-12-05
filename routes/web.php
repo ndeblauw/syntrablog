@@ -16,7 +16,7 @@ Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'inde
 Route::get('categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 
 
-Route::get('/authors', [\App\Http\Controllers\AuthorController::class, 'index']);
+Route::middleware(['auth','admin'])->get('/authors', [\App\Http\Controllers\AuthorController::class, 'index']);
 
 
 Route::get('/dashboard', function () {

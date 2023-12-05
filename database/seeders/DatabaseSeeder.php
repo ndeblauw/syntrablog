@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,8 +22,12 @@ class DatabaseSeeder extends Seeder
             $post->categories()->sync($categories);
         });
 
-
-
+        User::create([
+                "name" => "Nico Deblauwe",
+                "email" => "nico@deblauwe.be",
+                "password" => '$2y$12$e1NWKDPLUagB9dfkgCIX5.lbMJuV9wfFXp9Cb/IKTwYyUr4y1U0Vi',
+                "is_admin" => 1,
+        ]);
 
 
         // \App\Models\User::factory()->create([
